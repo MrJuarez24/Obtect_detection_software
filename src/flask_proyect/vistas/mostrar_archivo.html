@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <title> Flask upload picture demo </title>
+
+            <script src="static/js/slider.js"></script>
+            <link rel="stylesheet" href="static/css/slider.css">
+
+            <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+            <style>
+                #norwegian {
+                  background: linear-gradient(225deg, #ffc27d, #ff8e93);
+                }
+                #french {
+                  background: linear-gradient(#f3defc, #63a3e6);
+                }
+                #spanish {
+                  background: linear-gradient(#d2fcad, #22eaeb);
+                }
+                #hindi{
+                  background: linear-gradient(#f0bed4, #a163f5);
+                }
+                #mandarin {
+                  background: linear-gradient(#65cce1, #6365ec);
+                }
+          
+                section > span {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  font-size: 7vw;
+                  font-family: sans-serif;
+                  text-transform: uppercase;
+                  color: #fff;
+                }
+              </style>
+    </head>
+    <body>
+        
+        <div class="slides">
+            {%for i in range(imagenes |length):%}
+            <section id="norwegian">
+                <span>
+                    <img src={{imagenes[i]}} alt="">
+                </span>
+                {%if alarms[i] == 1: %}
+                <div>
+                    <p style="text-align:center;" margin-top="10%">
+                        <img src="static/stop.jpeg" alt="" width="30%" height="30%">
+                    </p>
+                </div>
+                {%endif%}
+            </section>
+            {%endfor%}
+        </div>
+        
+
+        <script>
+            var mySlider = slider('.slides');
+        </script>
+    </body>
+</html>
